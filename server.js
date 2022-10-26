@@ -5,11 +5,13 @@ const { Server } = require("socket.io")
 const ACTIONS = require("./socket_sever/action")
 
 const PORT = process.env.PORT || 5000
+const CLIENT_URL = process.env.CLIENT_URL || "http://localhost:3000"
+
 const app = express()
 const httpServer = http.createServer(app)
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:3000",
+    origin: CLIENT_URL,
   },
 })
 
